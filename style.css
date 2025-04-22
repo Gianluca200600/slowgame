@@ -1,0 +1,66 @@
+.form-label, .form-control {
+    display: inline-block;
+    width: 45%;
+}
+
+.form-group {
+    margin-bottom: 12px;
+}
+
+@media (max-width: 600px) {
+    .form-label, .form-control {
+        width: 100%;
+    }
+}
+
+.full-size {
+    width: 100%;
+}
+
+.card {
+    display: grid;
+    width: 300px;
+    border: 2px solid black;
+
+    grid-template-columns: 20% 10% auto 20%;
+    grid-template-rows: 3fr minmax(5fr, 200px) 2fr;
+    grid-template-areas: 
+        "image image name name"
+        "description description description description"
+        "playing-time . . players";
+}
+
+.image {
+    grid-area: image;
+}
+.name {
+    grid-area: name;
+}
+.description {
+    grid-area: description;
+    max-height: 200px;
+    overflow: auto;
+}
+.playing-time {
+    grid-area: playing-time;
+
+}   
+.players {
+    grid-area: players;
+}
+
+.card figure {
+    margin: 5px;
+}
+
+.card img {
+    width: 100%;
+}
+
+.wrapper > * {
+    display: inline-block;
+}
+
+.wrapper figure{
+    width: 30%;
+}    

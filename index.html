@@ -1,13 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>HTML 5 Boilerplate</title>
-    <link rel="stylesheet" href="style.css">
-  </head>
-  <body>
-    <script src="index.js"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>HTML 5 Boilerplate</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <main>
+    <section id="filters">
+      <h3>
+        Sfoglia il nostro catalogo
+      </h3>
+      <form>
+        <div class="form-group">
+          <div class="form-control full-size">
+            <input type="text" id="search" class="full-size" name="search" placeholder="Cerca un gioco">
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="form-label">
+            <label for="player-number">Numero Giocatori</label>
+          </div>
+          <div class="form-control">
+            <input type="number" id="player-number" name="player-number" min="1" max="99" value="1">
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="form-label">
+            <label for="playing-time">Durata</label>
+          </div>
+          <div class="form-control">
+            <select id="playing-time" name="playing-time">
+              <option value="0">Qualsiasi</option>
+              <option value="1">Meno di 30 minuti</option>
+              <option value="2">30-60 minuti</option>
+              <option value="3">60-120 minuti</option>
+              <option value="4">Più di 120 minuti</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-submit">
+          <button type="submit" id="filter-button">Filtra</button>
+        </div>
+      </form>
+    </section>
+    <section id="results">
+      <div class="card">
+        <div class="image">
+          <figure>
+            <img
+              src="https://cf.geekdo-images.com/-Qer2BBPG7qGGDu6KcVDIw__itemrep/img/Wxe36yaTzpiIVhEefHOYzFv7Ucc=/fit-in/246x300/filters:strip_icc()/pic2452831.png"
+              alt="Game Image">
+          </figure>
+        </div>
+        <div class="name">
+          <h4>Pandemic Legacy: Season 1</h4>
+        </div>
+        <div class="description">
+          <p>
+            Pandemic Legacy is a co-operative campaign game, with an overarching story arc played through 12-24
+            sessions, depending on how well your group does at the game. At the beginning, the game starts in a very
+            similar fashion as basic Pandemic, in which your team of disease-fighting specialists races against the
+            clock to travel around the world, treating disease hot spots while researching cures for each of four
+            plagues before they get out of hand.
+            During a player's turn, they have four actions available, with which they may travel around in the world in
+            various ways (sometimes needing to discard a card), build structures like research stations, treat diseases
+            (removing one cube from the board; if all cubes of a color have been removed, the disease has been
+            eradicated), trade cards with other players, or find a cure for a disease (requiring five cards of the same
+            color to be discarded while at a research station). Each player has a unique role with special abilities to
+            help them at these actions.
+            After a player has taken their actions, they draw two cards. These cards can include epidemic cards, which
+            will place new disease cubes on the board, and can lead to an outbreak, spreading disease cubes even
+            further. Outbreaks additionally increase the panic level of a city, making that city more expensive to
+            travel to.
+            Each month in the game, you have two chances to achieve that month's objectives. If you succeed, you win and
+            immediately move on to the next month. If you fail, you have a second chance, with more funding for
+            beneficial event cards.
+            During the campaign, new rules and components will be introduced. These will sometimes require you to
+            permanently alter the components of the game; this includes writing on cards, ripping up cards, and placing
+            permanent stickers on components. Your characters can gain new skills, or detrimental effects. A character
+            can even be lost entirely, at which point it's no longer available for play.
+          </p>
+        </div>
+
+        <div class="playing-time">
+          <div class="wrapper">
+            <figure>
+              <img src="https://www.svgrepo.com/show/201730/clock.svg" alt="Clock Icon">
+            </figure>
+            <p>60'</p>
+          </div>
+        </div>
+
+        <div class="players">
+          <div class="wrapper">
+            <figure>
+              <img src="https://www.svgrepo.com/show/507443/users.svg" alt="User Icon">
+            </figure>
+            <p>2-4</p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+  </main>
+  <script src="index.js"></script>
+</body>
+
 </html>
