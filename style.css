@@ -1,3 +1,7 @@
+section {
+    margin: 20px;
+}
+
 .form-label, .form-control {
     display: inline-block;
     width: 45%;
@@ -5,6 +9,12 @@
 
 .form-group {
     margin-bottom: 12px;
+}
+
+.form-submit button {
+    display: block;
+    width: 20%;
+    margin: 0 auto;
 }
 
 @media (max-width: 600px) {
@@ -63,4 +73,5 @@
 
 .wrapper figure{
     width: 30%;
-}    
+    margin: 0px 5px;
+}   
