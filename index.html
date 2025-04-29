@@ -5,7 +5,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>HTML 5 Boilerplate</title>
+  <title>Slowgame</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="style.css">
 </head>
 
@@ -49,10 +52,14 @@
           </div>
         </div>
         <div class="form-submit">
-          <button type="submit" id="filter-button">Filtra</button>
+          <button type="submit" id="filter-button">
+            Filtra
+            <i class="fa-solid fa-filter"></i>
+          </button>
         </div>
       </form>
     </section>
+
     <section id="results">
       <div class="card">
         <div class="image">
@@ -93,23 +100,17 @@
         </div>
 
         <div class="playing-time">
-          <div class="wrapper">
-            <figure>
-              <img src="https://www.svgrepo.com/show/201730/clock.svg" alt="Clock Icon">
-            </figure>
-            <p>60'</p>
-          </div>
+          <p> <i class="fa-solid fa-clock"></i>
+            60'
+          </p>
         </div>
 
         <div class="players">
-          <div class="wrapper">
-            <figure>
-              <img src="https://www.svgrepo.com/show/507443/users.svg" alt="User Icon">
-            </figure>
-            <p>2-4</p>
-          </div>
+          <p>
+            <i class="fa-solid fa-users"></i>
+            2-4
+          </p>
         </div>
-
       </div>
     </section>
   </main>
