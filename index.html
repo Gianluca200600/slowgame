@@ -16,15 +16,18 @@
 <body>
   <main>
     <section id="filters">
+
       <h3>
         Sfoglia il nostro catalogo
       </h3>
+      
       <form>
         <div>
           <div>
-            <input class="w-full border rounded-md pl-2" type="text" id="search" name="search" placeholder="Cerca un gioco">
+            <input class="w-full border rounded-md pl-2" type="text" id="name" name="name" placeholder="Cerca un gioco">
           </div>
         </div>
+
         <div class="grid grid-cols-1 md:grid-cols-2 md:gap-4 my-2 md:my-4">
           <div>
             <label for="player-number">Numero Giocatori</label>
@@ -38,6 +41,7 @@
             </select>
           </div>
         </div>
+        
         <div class="grid grid-cols-1 md:grid-cols-2 md:gap-4 my-2 md:my-4">
           <div>
             <label for="playing-time">Durata</label>
@@ -52,6 +56,7 @@
             </select>
           </div>
         </div>
+        
         <div>
           <button class="block w-1/5 m-auto border rounded-md hover:bg-stone-300 hover:cursor-pointer" type="submit" id="filter-button">
             Filtra
@@ -59,9 +64,11 @@
           </button>
         </div>
       </form>
+
     </section>
 
     <section id="results" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 my-4">
+      
       <div class="border grid p-2">
         <header class="flex gap-2 items-center">
           <figure class="max-w-1/5">
@@ -72,7 +79,7 @@
           <h4 class="text-2xl font-bold ">Pandemic Legacy: Season 1</h4>
         </header>
         <main>
-          <p class="max-h-[200px] overflow-auto">
+          <p class="max-h-[200px] my-2 overflow-auto">
               Pandemic Legacy is a co-operative campaign game, with an overarching story arc played through 12-24
               sessions, depending on how well your group does at the game. At the beginning, the game starts in a very
               similar fashion as basic Pandemic, in which your team of disease-fighting specialists races against the
@@ -111,11 +118,22 @@
             </p>
           </div>
         </footer>
-
       </div>
+
     </section>
   </main>
-  <script src="index.js"></script>
+  <script type="text/javascript" src="index.js"></script>
+  <script type="module" src="filter.js"></script>
+  <script type="module"> 
+    import {filters} from './filter.js';
+    document.addEventListener("DOMContentLoaded", () => {
+      const filterButton = document.getElementById('filter-button');
+      filterButton.addEventListener('click', (event) => {
+        event.preventDefault();
+        console.log(filters);
+      });
+    });
+  </script>
 </body>
 
 </html>
