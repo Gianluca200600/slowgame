@@ -1,13 +1,13 @@
 export const filters = {
     name: "",
-    playerNumber: 0,
-    playingTime: 0
+    playerNumber: "",
+    playingTime: ""
 }
 
 const resetFilters = () => {
     filters.name = "";
-    filters.playerNumber = 0;
-    filters.playingTime = 0;
+    filters.playerNumber = "";
+    filters.playingTime = "";
 }
 
 document.addEventListener("DOMContentLoaded", () => {

@@ -36,8 +36,8 @@
             <select class="border rounded-md hover:cursor-pointer" id="player-number" name="player-number">
               <option value="0">1</option>
               <option value="1">2</option>
-              <option value="2">3-5</option>
-              <option value="3">Più di 5</option>
+              <option value="2">Fino a 4</option>
+              <option value="3">5 o più</option>
             </select>
           </div>
         </div>
@@ -124,7 +124,7 @@
   </main>
   <script type="text/javascript" src="index.js"></script>
   <script type="module" src="filter.js"></script>
-  <script type="module"> 
+  <script type="module">
     import {filters} from './filter.js';
     document.addEventListener("DOMContentLoaded", () => {
       const filterButton = document.getElementById('filter-button');
