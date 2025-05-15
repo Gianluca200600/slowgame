@@ -2,138 +2,200 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Slowgame</title>
-  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="style.css">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Slowgame</title>
+	<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+		integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  <main>
-    <section id="filters">
+	<main>
+		<section id="filters">
 
-      <h3>
-        Sfoglia il nostro catalogo
-      </h3>
-      
-      <form>
-        <div>
-          <div>
-            <input class="w-full border rounded-md pl-2" type="text" id="name" name="name" placeholder="Cerca un gioco">
-          </div>
-        </div>
+			<h3>
+				Sfoglia il nostro catalogo
+			</h3>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 md:gap-4 my-2 md:my-4">
-          <div>
-            <label for="player-number">Numero Giocatori</label>
-          </div>
-          <div>
-            <select class="border rounded-md hover:cursor-pointer" id="player-number" name="player-number">
-              <option value="0">1</option>
-              <option value="1">2</option>
-              <option value="2">Fino a 4</option>
-              <option value="3">5 o più</option>
-            </select>
-          </div>
-        </div>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 md:gap-4 my-2 md:my-4">
-          <div>
-            <label for="playing-time">Durata</label>
-          </div>
-          <div>
-            <select class="border rounded-md hover:cursor-pointer" id="playing-time" name="playing-time">
-              <option value="0">Qualsiasi</option>
-              <option value="1">Meno di 30 minuti</option>
-              <option value="2">30-60 minuti</option>
-              <option value="3">60-120 minuti</option>
-              <option value="4">Più di 120 minuti</option>
-            </select>
-          </div>
-        </div>
-        
-        <div>
-          <button class="block w-1/5 m-auto border rounded-md hover:bg-stone-300 hover:cursor-pointer" type="submit" id="filter-button">
-            Filtra
-            <i class="fa-solid fa-filter"></i>
-          </button>
-        </div>
-      </form>
+			<form>
+				<div>
+					<div>
+						<input class="w-full border rounded-md pl-2" type="text" id="name" name="name" placeholder="Cerca un gioco">
+					</div>
+				</div>
 
-    </section>
+				<div class="grid grid-cols-1 md:grid-cols-2 md:gap-4 my-2 md:my-4">
+					<div>
+						<label for="player-number">Numero Giocatori</label>
+					</div>
+					<div>
+						<select class="border rounded-md hover:cursor-pointer" id="player-number" name="player-number">
+							<option value="0">Qualsiasi</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">Fino a 4</option>
+							<option value="4">5 o più</option>
+						</select>
+					</div>
+				</div>
 
-    <section id="results" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 my-4">
-      
-      <div class="border grid p-2">
-        <header class="flex gap-2 items-center">
-          <figure class="max-w-1/5">
-            <img
-              src="https://cf.geekdo-images.com/-Qer2BBPG7qGGDu6KcVDIw__itemrep/img/Wxe36yaTzpiIVhEefHOYzFv7Ucc=/fit-in/246x300/filters:strip_icc()/pic2452831.png"
-              alt="Game Image">
-          </figure>
-          <h4 class="text-2xl font-bold ">Pandemic Legacy: Season 1</h4>
-        </header>
-        <main>
-          <p class="max-h-[200px] my-2 overflow-auto">
-              Pandemic Legacy is a co-operative campaign game, with an overarching story arc played through 12-24
-              sessions, depending on how well your group does at the game. At the beginning, the game starts in a very
-              similar fashion as basic Pandemic, in which your team of disease-fighting specialists races against the
-              clock to travel around the world, treating disease hot spots while researching cures for each of four
-              plagues before they get out of hand.
-              During a player's turn, they have four actions available, with which they may travel around in the world in
-              various ways (sometimes needing to discard a card), build structures like research stations, treat diseases
-              (removing one cube from the board; if all cubes of a color have been removed, the disease has been
-              eradicated), trade cards with other players, or find a cure for a disease (requiring five cards of the same
-              color to be discarded while at a research station). Each player has a unique role with special abilities to
-              help them at these actions.
-              After a player has taken their actions, they draw two cards. These cards can include epidemic cards, which
-              will place new disease cubes on the board, and can lead to an outbreak, spreading disease cubes even
-              further. Outbreaks additionally increase the panic level of a city, making that city more expensive to
-              travel to.
-              Each month in the game, you have two chances to achieve that month's objectives. If you succeed, you win and
-              immediately move on to the next month. If you fail, you have a second chance, with more funding for
-              beneficial event cards.
-              During the campaign, new rules and components will be introduced. These will sometimes require you to
-              permanently alter the components of the game; this includes writing on cards, ripping up cards, and placing
-              permanent stickers on components. Your characters can gain new skills, or detrimental effects. A character
-              can even be lost entirely, at which point it's no longer available for play.
-          </p>
-        </main>
+				<div class="grid grid-cols-1 md:grid-cols-2 md:gap-4 my-2 md:my-4">
+					<div>
+						<label for="playing-time">Durata</label>
+					</div>
+					<div>
+						<select class="border rounded-md hover:cursor-pointer" id="playing-time" name="playing-time">
+							<option value="0">Qualsiasi</option>
+							<option value="1">Meno di 30 minuti</option>
+							<option value="2">30-60 minuti</option>
+							<option value="3">60-120 minuti</option>
+							<option value="4">Più di 120 minuti</option>
+						</select>
+					</div>
+				</div>
 
-        <footer class="flex justify-between items-center">
-          <div>
-            <p> <i class="fa-solid fa-clock"></i>
-              60'
-            </p>
-          </div>
-          <div>
-            <p>
-              <i class="fa-solid fa-users"></i>
-              2-4
-            </p>
-          </div>
-        </footer>
-      </div>
+				<div>
+					<button class="block w-1/5 m-auto border rounded-md hover:bg-stone-300 hover:cursor-pointer" type="submit"
+						id="filter-button">
+						Filtra
+						<i class="fa-solid fa-filter"></i>
+					</button>
+				</div>
+			</form>
 
-    </section>
-  </main>
-  <script type="text/javascript" src="index.js"></script>
-  <script type="module" src="filter.js"></script>
-  <script type="module">
-    import {filters} from './filter.js';
-    document.addEventListener("DOMContentLoaded", () => {
-      const filterButton = document.getElementById('filter-button');
-      filterButton.addEventListener('click', (event) => {
-        event.preventDefault();
-        console.log(filters);
-      });
-    });
-  </script>
+		</section>
+
+		<section id="results" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 my-4">
+
+			<div class="border grid p-2">
+				<header class="flex gap-2 items-center">
+					<figure class="max-w-1/5">
+						<img
+							src="https://cf.geekdo-images.com/-Qer2BBPG7qGGDu6KcVDIw__itemrep/img/Wxe36yaTzpiIVhEefHOYzFv7Ucc=/fit-in/246x300/filters:strip_icc()/pic2452831.png"
+							alt="Game Image">
+					</figure>
+					<h4 class="text-2xl font-bold ">Pandemic Legacy: Season 1</h4>
+				</header>
+				<main>
+					<p class="max-h-[200px] my-2 overflow-auto">
+						Pandemic Legacy is a co-operative campaign game, with an overarching story arc played through
+						12-24
+						sessions, depending on how well your group does at the game. At the beginning, the game starts
+						in a very
+						similar fashion as basic Pandemic, in which your team of disease-fighting specialists races
+						against the
+						clock to travel around the world, treating disease hot spots while researching cures for each of
+						four
+						plagues before they get out of hand.
+						During a player's turn, they have four actions available, with which they may travel around in
+						the world in
+						various ways (sometimes needing to discard a card), build structures like research stations,
+						treat diseases
+						(removing one cube from the board; if all cubes of a color have been removed, the disease has
+						been
+						eradicated), trade cards with other players, or find a cure for a disease (requiring five cards
+						of the same
+						color to be discarded while at a research station). Each player has a unique role with special
+						abilities to
+						help them at these actions.
+						After a player has taken their actions, they draw two cards. These cards can include epidemic
+						cards, which
+						will place new disease cubes on the board, and can lead to an outbreak, spreading disease cubes
+						even
+						further. Outbreaks additionally increase the panic level of a city, making that city more
+						expensive to
+						travel to.
+						Each month in the game, you have two chances to achieve that month's objectives. If you succeed,
+						you win and
+						immediately move on to the next month. If you fail, you have a second chance, with more funding
+						for
+						beneficial event cards.
+						During the campaign, new rules and components will be introduced. These will sometimes require
+						you to
+						permanently alter the components of the game; this includes writing on cards, ripping up cards,
+						and placing
+						permanent stickers on components. Your characters can gain new skills, or detrimental effects. A
+						character
+						can even be lost entirely, at which point it's no longer available for play.
+					</p>
+				</main>
+
+				<footer class="flex justify-between items-center">
+					<div>
+						<p> <i class="fa-solid fa-clock"></i>
+							60'
+						</p>
+					</div>
+					<div>
+						<p>
+							<i class="fa-solid fa-users"></i>
+							2-4
+						</p>
+					</div>
+				</footer>
+			</div>
+
+		</section>
+	</main>
+	<script type="text/javascript" src="index.js"></script>
+	<script type="module" src="filter.js"></script>
+	<script type="module">
+		import { filters } from './filter.js';
+		document.addEventListener("DOMContentLoaded", () => {
+			const filterButton = document.getElementById('filter-button');
+			filterButton.addEventListener('click', (event) => {
+				event.preventDefault();
+				const fetchPromise = fetch('./games/games.json');
+				fetchPromise
+					.then(response => {
+						if (!response.ok) {
+							throw new Error('Network response was not ok');
+						}
+						return response.json();
+					})
+					.then(data => {
+						const filteredGames = data.filter(game => {
+
+							const nameFilter = filters.name.toLowerCase();
+							const playerNumberFilter = filters.playerNumber.toLowerCase();
+							const playingTimeFilter = filters.playingTime.toLowerCase();
+
+							if (nameFilter && !game.name.toLowerCase().includes(nameFilter)) {
+								return false;
+							}
+							if (playerNumberFilter && playerNumberFilter !== '0') {
+								if (game.players.match(/^\d-\d$/)) {
+									const playersArray = game.players.split('-');
+									if (playerNumberFilter == '1' && playersArray[1] > 1) {
+										return false;
+									}
+									if (playerNumberFilter == '2' && playersArray[1] > 2 && playersArray[0] < 2) {
+										return false;
+									}
+									if (playerNumberFilter == '3' && playersArray[1] > 4) {
+										return false;
+									}
+									if (playerNumberFilter == '4' && playersArray[0] < 5) {
+										return false;
+									}
+								}
+							}
+							return true;
+						});
+						filteredGames.sort(
+							(a, b) => {
+								return a.name.localeCompare(b.name);
+							}
+						);
+						console.log(filteredGames);
+					});
+			});
+		});
+	</script>
 </body>
 
 </html>
