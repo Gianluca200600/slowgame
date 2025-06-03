@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="en">
+<title>Hello world</title>
+
+<main></main>
+
+<script type="module">
+  import init from './helloworld.js';
+
+  const main = document.querySelector('main');
+  const update = init();
+
+  main.appendChild(update({ name: 'name' }));
+</script>

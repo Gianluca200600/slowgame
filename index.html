@@ -24,7 +24,8 @@
 			<form>
 				<div>
 					<div>
-						<input class="w-full border rounded-md pl-2" type="text" id="name" name="name" placeholder="Cerca un gioco">
+						<input class="w-full border rounded-md pl-2" type="text" id="name" name="name"
+							placeholder="Cerca un gioco">
 					</div>
 				</div>
 
@@ -59,8 +60,8 @@
 				</div>
 
 				<div>
-					<button class="block w-1/5 m-auto border rounded-md hover:bg-stone-300 hover:cursor-pointer" type="submit"
-						id="filter-button">
+					<button class="block w-1/5 m-auto border rounded-md hover:bg-stone-300 hover:cursor-pointer"
+						type="submit" id="filter-button">
 						Filtra
 						<i class="fa-solid fa-filter"></i>
 					</button>
@@ -71,76 +72,40 @@
 
 		<section id="results" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 my-4">
 
-			<div class="border grid p-2">
-				<header class="flex gap-2 items-center">
-					<figure class="max-w-1/5">
-						<img
-							src="https://cf.geekdo-images.com/-Qer2BBPG7qGGDu6KcVDIw__itemrep/img/Wxe36yaTzpiIVhEefHOYzFv7Ucc=/fit-in/246x300/filters:strip_icc()/pic2452831.png"
-							alt="Game Image">
-					</figure>
-					<h4 class="text-2xl font-bold ">Pandemic Legacy: Season 1</h4>
-				</header>
-				<main>
-					<p class="max-h-[200px] my-2 overflow-auto">
-						Pandemic Legacy is a co-operative campaign game, with an overarching story arc played through
-						12-24
-						sessions, depending on how well your group does at the game. At the beginning, the game starts
-						in a very
-						similar fashion as basic Pandemic, in which your team of disease-fighting specialists races
-						against the
-						clock to travel around the world, treating disease hot spots while researching cures for each of
-						four
-						plagues before they get out of hand.
-						During a player's turn, they have four actions available, with which they may travel around in
-						the world in
-						various ways (sometimes needing to discard a card), build structures like research stations,
-						treat diseases
-						(removing one cube from the board; if all cubes of a color have been removed, the disease has
-						been
-						eradicated), trade cards with other players, or find a cure for a disease (requiring five cards
-						of the same
-						color to be discarded while at a research station). Each player has a unique role with special
-						abilities to
-						help them at these actions.
-						After a player has taken their actions, they draw two cards. These cards can include epidemic
-						cards, which
-						will place new disease cubes on the board, and can lead to an outbreak, spreading disease cubes
-						even
-						further. Outbreaks additionally increase the panic level of a city, making that city more
-						expensive to
-						travel to.
-						Each month in the game, you have two chances to achieve that month's objectives. If you succeed,
-						you win and
-						immediately move on to the next month. If you fail, you have a second chance, with more funding
-						for
-						beneficial event cards.
-						During the campaign, new rules and components will be introduced. These will sometimes require
-						you to
-						permanently alter the components of the game; this includes writing on cards, ripping up cards,
-						and placing
-						permanent stickers on components. Your characters can gain new skills, or detrimental effects. A
-						character
-						can even be lost entirely, at which point it's no longer available for play.
-					</p>
-				</main>
-
-				<footer class="flex justify-between items-center">
-					<div>
-						<p> <i class="fa-solid fa-clock"></i>
-							60'
-						</p>
-					</div>
-					<div>
-						<p>
-							<i class="fa-solid fa-users"></i>
-							2-4
-						</p>
-					</div>
-				</footer>
-			</div>
-
 		</section>
 	</main>
+
+	<template>
+		<div class="border grid p-2">
+			<header class="flex gap-2 items-center">
+				<figure class="max-w-1/5">
+
+				</figure>
+				<h4 class="text-2xl font-bold"><span data-placeholder="title"></span></h4>
+			</header>
+			<main>
+				<p class="max-h-[200px] my-2 overflow-auto">
+					<span data-placeholder="description"></span>
+				</p>
+			</main>
+
+			<footer class="flex justify-between items-center">
+				<div>
+					<p>
+						<i class="fa-solid fa-clock"></i>
+						<span data-placeholder="playing-time"></span>
+					</p>
+				</div>
+				<div>
+					<p>
+						<i class="fa-solid fa-users"></i>
+						<span data-placeholder="players"></span>
+					</p>
+				</div>
+			</footer>
+		</div>
+	</template>
+
 	<script type="text/javascript" src="index.js"></script>
 	<script type="module" src="filter.js"></script>
 	<script type="module">
@@ -158,40 +123,69 @@
 						return response.json();
 					})
 					.then(data => {
-						const filteredGames = data.filter(game => {
-
-							const nameFilter = filters.name.toLowerCase();
-							const playerNumberFilter = filters.playerNumber.toLowerCase();
-							const playingTimeFilter = filters.playingTime.toLowerCase();
-
-							if (nameFilter && !game.name.toLowerCase().includes(nameFilter)) {
-								return false;
+						const filteredGames = data.map(game => {
+							const gameCopy = {
+								name: game.name || "",
+								description: game.description || "",
+								playerNumber: game.players || "",
+								playingTime: game['playing-time'] || ""
 							}
-							if (playerNumberFilter && playerNumberFilter !== '0') {
-								if (game.players.match(/^\d-\d$/)) {
-									const playersArray = game.players.split('-');
-									if (playerNumberFilter == '1' && playersArray[1] > 1) {
-										return false;
-									}
-									if (playerNumberFilter == '2' && playersArray[1] > 2 && playersArray[0] < 2) {
-										return false;
-									}
-									if (playerNumberFilter == '3' && playersArray[1] > 4) {
-										return false;
-									}
-									if (playerNumberFilter == '4' && playersArray[0] < 5) {
-										return false;
+							return gameCopy;
+						})
+							.filter(game => {
+
+								const nameFilter = filters.name.toLowerCase();
+								const playerNumberFilter = filters.playerNumber.toLowerCase();
+								const playingTimeFilter = filters.playingTime.toLowerCase();
+
+								if (nameFilter && !game.name.toLowerCase().includes(nameFilter)) {
+									return false;
+								}
+								if (playerNumberFilter && playerNumberFilter !== '0') {
+									if (game.players.match(/^\d-\d$/)) {
+										const playersArray = game.players.split('-');
+										if (playerNumberFilter == '1' && playersArray[1] > 1) {
+											return false;
+										}
+										if (playerNumberFilter == '2' && playersArray[1] > 2 && playersArray[0] < 2) {
+											return false;
+										}
+										if (playerNumberFilter == '3' && playersArray[1] > 4) {
+											return false;
+										}
+										if (playerNumberFilter == '4' && playersArray[0] < 5) {
+											return false;
+										}
 									}
 								}
-							}
-							return true;
-						});
+								return true;
+							});
 						filteredGames.sort(
 							(a, b) => {
 								return a.name.localeCompare(b.name);
 							}
 						);
 						console.log(filteredGames);
+						return filteredGames;
+					})
+					.then(filteredGames => {
+						const resultsElement = document.getElementById('results');
+						resultsElement.innerHTML = '';
+						filteredGames.forEach(game => {
+							const template = document.querySelector('template');
+							const cardElement = document.importNode(template.content, true);
+							const titleElement = cardElement.querySelector("[data-placeholder='title']");
+							const descriptionElement = cardElement.querySelector("[data-placeholder='description']");
+							const playingTimeElement = cardElement.querySelector("[data-placeholder='playing-time']");
+							const playersElement = cardElement.querySelector("[data-placeholder='players']");
+
+							titleElement.innerHTML = game.name;
+							descriptionElement.innerHTML = game.description;
+							playingTimeElement.innerHTML = game.playingTime;
+							playersElement.innerHTML = game.playerNumber;
+
+							resultsElement.appendChild(cardElement);
+						})
 					});
 			});
 		});

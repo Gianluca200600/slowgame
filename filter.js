@@ -1,5 +1,6 @@
 export const filters = {
 	name: "",
+	description: "",
 	playerNumber: "",
 	playingTime: ""
 }
