@@ -31,16 +31,20 @@
 
 				<div class="grid grid-cols-1 md:grid-cols-2 md:gap-4 my-2 md:my-4">
 					<div>
-						<label for="player-number">Numero Giocatori</label>
+						<label for="min-player-number">Minimo Giocatori</label>
 					</div>
 					<div>
-						<select class="border rounded-md hover:cursor-pointer" id="player-number" name="player-number">
-							<option value="0">Qualsiasi</option>
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">Fino a 4</option>
-							<option value="4">5 o più</option>
-						</select>
+						<input type="number" class="border rounded-md hover:cursor-pointer" id="min-player-number"
+							name="min-player-number" min="1" max="9" value="1">
+						</input>
+					</div>
+					<div>
+						<label for="max-player-number">Massimo Giocatori</label>
+					</div>
+					<div>
+						<input type="number" class="border rounded-md hover:cursor-pointer" id="max-player-number"
+							name="max-player-number" min="1" max="9" value="9">
+						</input>
 					</div>
 				</div>
 
@@ -99,7 +103,9 @@
 				<div>
 					<p>
 						<i class="fa-solid fa-users"></i>
-						<span data-placeholder="players"></span>
+						<span data-placeholder="min-players"></span>
+						<span> - </span>
+						<span data-placeholder="max-players"></span>
 					</p>
 				</div>
 			</footer>
@@ -127,7 +133,8 @@
 							const gameCopy = {
 								name: game.name || "",
 								description: game.description || "",
-								playerNumber: game.players || "",
+								minPlayerNumber: (game.players.split('-'))[0] || "",
+								maxPlayerNumber: (game.players.split('-'))[1] || "",
 								playingTime: game['playing-time'] || ""
 							}
 							return gameCopy;
@@ -135,27 +142,19 @@
 							.filter(game => {
 
 								const nameFilter = filters.name.toLowerCase();
-								const playerNumberFilter = filters.playerNumber.toLowerCase();
+								const minPlayerNumberFilter = parseInt(filters.minPlayerNumber);
+								const maxPlayerNumberFilter = parseInt(filters.maxPlayerNumber);
 								const playingTimeFilter = filters.playingTime.toLowerCase();
 
 								if (nameFilter && !game.name.toLowerCase().includes(nameFilter)) {
 									return false;
 								}
-								if (playerNumberFilter && playerNumberFilter !== '0') {
-									if (game.players.match(/^\d-\d$/)) {
-										const playersArray = game.players.split('-');
-										if (playerNumberFilter == '1' && playersArray[1] > 1) {
-											return false;
-										}
-										if (playerNumberFilter == '2' && playersArray[1] > 2 && playersArray[0] < 2) {
-											return false;
-										}
-										if (playerNumberFilter == '3' && playersArray[1] > 4) {
-											return false;
-										}
-										if (playerNumberFilter == '4' && playersArray[0] < 5) {
-											return false;
-										}
+								if (minPlayerNumberFilter && minPlayerNumberFilter !== 0 && maxPlayerNumberFilter && maxPlayerNumberFilter !== 0) {
+									if (game.minPlayerNumber < minPlayerNumberFilter || game.maxPlayerNumber > maxPlayerNumberFilter) {
+										return false;
+									}
+									if (minPlayerNumberFilter > maxPlayerNumberFilter) {
+										return false;
 									}
 								}
 								return true;
@@ -177,12 +176,14 @@
 							const titleElement = cardElement.querySelector("[data-placeholder='title']");
 							const descriptionElement = cardElement.querySelector("[data-placeholder='description']");
 							const playingTimeElement = cardElement.querySelector("[data-placeholder='playing-time']");
-							const playersElement = cardElement.querySelector("[data-placeholder='players']");
+							const minPlayersElement = cardElement.querySelector("[data-placeholder='min-players']");
+							const maxPlayersElement = cardElement.querySelector("[data-placeholder='max-players']");
 
 							titleElement.innerHTML = game.name;
 							descriptionElement.innerHTML = game.description;
 							playingTimeElement.innerHTML = game.playingTime;
-							playersElement.innerHTML = game.playerNumber;
+							minPlayersElement.innerHTML = game.minPlayerNumber;
+							maxPlayersElement.innerHTML = game.maxPlayerNumber;
 
 							resultsElement.appendChild(cardElement);
 						})
